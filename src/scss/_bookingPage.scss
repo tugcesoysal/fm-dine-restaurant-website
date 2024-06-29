@@ -1,0 +1,181 @@
+@import "./designSystem";
+
+.bookingpage {
+  background-color: $bg;
+}
+
+.bookingpage__hero {
+  width: 100%;
+  padding: 5% 12% 15%;
+  background-image: url("/images/booking/hero-bg-desktop.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 150px;
+
+  .hero-content {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    color: white;
+
+    .mobile {
+      display: none;
+    }
+  }
+}
+
+form {
+  position: absolute;
+  top: 260px;
+  right: 8%;
+  padding: 48px;
+  width: 540px;
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+  background-color: white;
+
+  button {
+    @include button;
+    background-color: $cod-gray;
+    border: 1px solid $cod-gray;
+    width: 100%;
+    color: white;
+
+    &:hover {
+      background-color: transparent;
+      color: $cod-gray;
+    }
+  }
+}
+
+.date,
+.time {
+  width: 100%;
+  padding-bottom: 16px;
+  color: $cod-gray;
+  font-family: inherit;
+  font-size: 20px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  gap: 65px;
+
+  span {
+    min-width: 90px;
+  }
+
+  .dropdowns {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+}
+
+.people {
+  width: 100%;
+  padding-bottom: 16px;
+  padding-inline: 30px;
+  color: $cod-gray;
+  border-bottom: 1px solid #8e8e8e;
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: -0.25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  img {
+    cursor: pointer;
+  }
+}
+
+.emptyDiv {
+  height: 320px;
+  background-image: url("/images/patterns/pattern-curve-bottom-right.svg");
+  background-repeat: no-repeat;
+  background-position: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 1000px) {
+  .bookingpage__hero {
+    padding: 60px 40px 270px;
+    background-image: url("/images/booking/hero-bg-tablet.jpg");
+    gap: 70px;
+
+    .hero-content {
+      width: 100%;
+      align-items: center;
+      text-align: center;
+      gap: 12px;
+    }
+  }
+
+  form {
+    position: relative !important;
+    top: 0;
+    left: 0;
+    margin: -240px auto 0;
+    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
+  }
+
+  .emptyDiv {
+    background-image: none;
+    height: auto;
+
+    img {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .bookingpage__hero {
+    padding: 60px 24px 230px;
+    background-image: url("/images/booking/hero-bg-mobile.jpg");
+    gap: 50px;
+    align-items: center;
+
+    .hero-content {
+      .mobile {
+        display: flex;
+      }
+
+      button {
+        margin-top: 8px;
+        @include buttonOnDark;
+        width: 250px;
+      }
+    }
+  }
+
+  form {
+    width: 90%;
+    max-width: 327px;
+    padding: 8%;
+    margin: -140px auto 0;
+
+    .date,
+    .time {
+      display: flex;
+      flex-direction: column;
+      align-items: self-start;
+      gap: 8px;
+    }
+
+    button {
+      padding: 19px 37px;
+    }
+  }
+}

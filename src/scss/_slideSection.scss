@@ -1,0 +1,189 @@
+@import "./designSystem";
+
+.slide-section {
+  padding: 10%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 60px;
+  background-image: url("/images/patterns/pattern-curve-top-right.svg");
+  background-position: top left;
+  background-repeat: no-repeat;
+
+  .slide-picture {
+    width: 540px;
+    height: 600px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
+    position: relative;
+
+    &::before {
+      content: "";
+      width: 160px;
+      height: 76px;
+      background-image: url("/images/patterns/pattern-lines.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      position: absolute;
+      top: -40px;
+      left: -40px;
+    }
+  }
+
+  .picture-1 {
+    background-image: url("/images/homepage/family-gathering-desktop.jpg");
+  }
+  .picture-2 {
+    background-image: url("/images/homepage/special-events-desktop.jpg");
+  }
+  .picture-3 {
+    background-image: url("/images/homepage/social-events-desktop.jpg");
+  }
+
+  .slide-content {
+    flex: 1;
+    padding: 60px 0;
+    max-width: 445px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    button {
+      margin-top: 30px;
+      @include buttonOnLight;
+    }
+  }
+
+  .slide-list {
+    margin-top: 80px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+
+    li {
+      color: #4c4c4c;
+      text-transform: uppercase;
+      opacity: 50%;
+      cursor: pointer;
+      position: relative;
+
+      &:hover,
+      &.active {
+        opacity: 1;
+
+        &::after {
+          content: "";
+          position: absolute;
+          width: 95px;
+          height: 1px;
+          top: 50%;
+          left: -120px;
+          transform: translateY(-50%);
+          background-color: $beaver;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .slide-section {
+    padding: 120px 40px;
+    flex-direction: column;
+    align-items: center;
+    gap: 140px;
+    position: relative;
+
+    .slide-picture {
+      width: 573px;
+      height: 360px;
+    }
+
+    .picture-1 {
+      background-image: url("/images/homepage/family-gathering-tablet.jpg");
+    }
+    .picture-2 {
+      background-image: url("/images/homepage/special-events-tablet.jpg");
+    }
+    .picture-3 {
+      background-image: url("/images/homepage/social-events-tablet.jpg");
+    }
+
+    .slide-content {
+      align-items: center;
+    }
+
+    .slide-list {
+      position: absolute;
+      top: 500px;
+      flex-direction: row;
+      align-items: center;
+      gap: 30px;
+
+      li {
+        position: relative;
+      }
+
+      li:hover,
+      li.active {
+        &::after {
+          width: 48px;
+          top: 30px;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .slide-section {
+    padding: 80px 24px 120px;
+    gap: 190px;
+    background-image: none;
+
+    .slide-picture {
+      width: 326px;
+      height: 400px;
+
+      &::before {
+        background-image: none;
+      }
+    }
+
+    .picture-1 {
+      background-image: url("/images/homepage/family-gathering-mobile.jpg");
+    }
+    .picture-2 {
+      background-image: url("/images/homepage/special-events-mobile.jpg");
+    }
+    .picture-3 {
+      background-image: url("/images/homepage/social-events-mobile.jpg");
+    }
+
+    .slide-content {
+      padding: 0;
+      text-align: center;
+
+      button {
+        margin-top: 30px;
+      }
+    }
+
+    .slide-list {
+      flex-direction: column;
+      align-items: center;
+      top: 450px;
+      gap: 16px;
+    }
+  }
+}

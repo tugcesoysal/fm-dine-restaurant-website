@@ -1,0 +1,356 @@
+@import "./designSystem";
+
+.homepage__hero {
+  width: 100%;
+  padding: 5% 12% 15%;
+  background-image: url("/images/homepage/hero-bg-desktop.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 150px;
+
+  .hero-content {
+    width: 507px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+
+    .hero-content-text {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      color: white;
+    }
+
+    button {
+      @include buttonOnDark;
+    }
+  }
+}
+
+.middle {
+  margin-top: -70px;
+  padding-inline: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  background-image: url("/images/patterns/pattern-curve-top-right.svg");
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: left 0 bottom 70px;
+
+  .middle-image {
+    width: 540px;
+    height: 720px;
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-image: url("/images/homepage/enjoyable-place-desktop.jpg");
+  }
+
+  .middle-content {
+    max-width: 445px;
+    color: $eboni-clay;
+    flex: 1;
+
+    h2 {
+      max-width: 350px;
+      margin-top: 55px;
+      margin-bottom: 25px;
+    }
+  }
+}
+
+.middle:nth-of-type(3) {
+  margin-top: 120px;
+  flex-direction: row-reverse;
+  margin-bottom: -70px;
+  background-image: url("/images/patterns/pattern-curve-top-left.svg");
+  background-position: right 0 bottom 70px;
+
+  .middle-image {
+    background-image: url("/images/homepage/locally-sourced-desktop.jpg");
+    position: relative;
+
+    &::after {
+      content: "";
+      width: 160px;
+      height: 76px;
+      position: absolute;
+      background-size: cover;
+      background-image: url("/images/patterns/pattern-lines.svg");
+      top: 30%;
+      right: -100px;
+      z-index: 2;
+    }
+  }
+}
+
+.dark-middle {
+  background-color: $cod-gray;
+  padding: 15% 10% 8%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 60px;
+
+  .middle-content {
+    color: white;
+    max-width: 445px;
+    flex: 1;
+
+    h2 {
+      margin-top: 55px;
+      margin-bottom: 25px;
+    }
+  }
+
+  .dark-middle-pictures {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    flex: 1;
+
+    .picture-card {
+      padding: 24px 0;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+
+      .picture {
+        width: 160px;
+        min-width: 160px;
+        height: 96px;
+        background-image: url("/images/homepage/salmon-desktop-tablet.jpg");
+        background-position: left;
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: relative;
+
+        &::after {
+          content: "";
+          width: 32px;
+          height: 1px;
+          background-color: $beaver;
+          position: absolute;
+          top: 25%;
+          left: 80%;
+        }
+      }
+
+      .picture-card-content {
+        max-width: 350px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+    }
+
+    .picture-card:nth-of-type(2) {
+      .picture {
+        background-image: url("/images/homepage/beef-desktop-tablet.jpg");
+      }
+    }
+
+    .picture-card:nth-of-type(3) {
+      border: none;
+      .picture {
+        background-image: url("/images/homepage/chocolate-desktop-tablet.jpg");
+      }
+    }
+  }
+}
+
+.top-footer {
+  background-image: url("/images/homepage/ready-bg-desktop.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 100px 165px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  h2 {
+    color: white;
+  }
+
+  button {
+    @include buttonOnDark;
+  }
+}
+
+@media (max-width: 1000px) {
+  .homepage__hero {
+    background-image: url("/images/homepage/hero-bg-tablet.jpg");
+    padding: 50% 5% 28%;
+    align-items: center;
+    gap: 40px;
+
+    .hero-content {
+      width: 100%;
+      gap: 50px;
+      align-items: center;
+      text-align: center;
+
+      .hero-content-text {
+        gap: 20px;
+        align-items: center;
+
+        h1 {
+          width: 60%;
+        }
+      }
+    }
+  }
+
+  .middle {
+    margin-top: -70px;
+    padding-inline: 10%;
+    flex-direction: column !important;
+    gap: 56px;
+    background-position: center right 400px;
+
+    .middle-image {
+      width: 573px;
+      height: 360px;
+      background-image: url("/images/homepage/enjoyable-place-tablet.jpg");
+    }
+
+    .middle-content {
+      text-align: center;
+
+      h2 {
+        margin: 40px auto 25px;
+      }
+    }
+  }
+
+  .middle:nth-of-type(3) {
+    margin-top: 120px;
+    background-position: bottom -100px left 400px;
+    margin-bottom: 120px;
+
+    .middle-image {
+      background-image: url("/images/homepage/locally-sourced-tablet.jpg");
+
+      &::after {
+        top: 60%;
+        right: -60px;
+      }
+    }
+  }
+
+  .dark-middle {
+    padding: 96px;
+    flex-direction: column;
+    align-items: center;
+    gap: 54px;
+
+    .middle-content {
+      text-align: center;
+    }
+  }
+
+  .top-footer {
+    background-image: url("/images/homepage/ready-bg-tablet.jpg");
+    padding: 72px 65px;
+    flex-direction: column;
+    gap: 24px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .homepage__hero {
+    background-image: url("/images/homepage/hero-bg-mobile.jpg");
+    padding: 65% 24px 40%;
+  }
+
+  .middle {
+    margin-top: -70px;
+    padding-inline: 24px;
+    gap: 48px;
+    background-image: none;
+
+    .middle-image {
+      width: 327px;
+      height: 400px;
+      background-image: url("/images/homepage/enjoyable-place-mobile.jpg");
+      filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
+    }
+
+    .middle-content {
+      h2 {
+        margin: 36px auto 13px;
+      }
+    }
+  }
+
+  .middle:nth-of-type(3) {
+    margin-top: 100px;
+    background-image: none;
+
+    .middle-image {
+      background-image: url("/images/homepage/locally-sourced-mobile.jpg");
+
+      &::after {
+        background-image: none;
+      }
+    }
+  }
+
+  .dark-middle {
+    padding: 72px 24px;
+
+    .dark-middle-pictures {
+      .picture-card {
+        flex-direction: column;
+
+        .picture {
+          width: 327px;
+          height: 245px;
+          background-position: center;
+          background-image: url("/images/homepage/salmon-mobile.jpg");
+
+          &::after {
+            display: none;
+          }
+        }
+
+        .picture-card-content {
+          padding: 0 54px 0;
+          align-items: center;
+          text-align: center;
+        }
+      }
+
+      .picture-card:nth-of-type(2) {
+        .picture {
+          background-image: url("/images/homepage/beef-mobile.jpg");
+        }
+      }
+
+      .picture-card:nth-of-type(3) {
+        .picture {
+          background-image: url("/images/homepage/chocolate-mobile.jpg");
+        }
+      }
+    }
+  }
+
+  .top-footer {
+    background-image: url("/images/homepage/ready-bg-mobile.jpg");
+    padding: 84px 24px;
+    gap: 20px;
+  }
+}

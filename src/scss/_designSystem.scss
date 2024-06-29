@@ -1,0 +1,224 @@
+// COLORS
+
+$beaver: #9e7f66;
+$cod-gray: #111111;
+$mirage: #17192b;
+$eboni-clay: #242b37;
+$shuttle-gray: #5c6779;
+$error: #b54949;
+$bg: #f2f2f2;
+
+// TYPOGRAPHY
+
+@mixin ff {
+  font-family: "League Spartan", sans-serif;
+}
+
+@mixin h-xl {
+  font-weight: 300;
+  font-size: 80px;
+  line-height: 80px;
+  letter-spacing: -1px;
+
+  @media (max-width: 1000px) {
+    font-size: 48px;
+    line-height: 64px;
+    letter-spacing: -0.6px;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 32px;
+    line-height: 40px;
+    letter-spacing: -0.4px;
+  }
+}
+
+@mixin h-l {
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 48px;
+  letter-spacing: -0.5px;
+
+  @media (max-width: 600px) {
+    font-size: 32px;
+    line-height: 40px;
+    letter-spacing: -0.4px;
+  }
+}
+
+@mixin h-m {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.25px;
+}
+
+@mixin h-s {
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 28px;
+  letter-spacing: +2.5px;
+}
+
+@mixin body {
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 30px;
+
+  @media (max-width: 600px) {
+    font-size: 16px;
+    line-height: 26px;
+  }
+}
+
+@mixin body-2 {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+h1 {
+  @include h-xl;
+}
+
+h2 {
+  @include h-l;
+}
+
+h3 {
+  @include h-m;
+}
+
+p {
+  @include body;
+}
+
+li {
+  @include h-s;
+}
+// BUTTONS
+@mixin button {
+  width: 245px;
+  min-width: 245px;
+  padding: 28px 48px;
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  line-height: 16px;
+  background-color: transparent;
+  text-transform: uppercase;
+
+  &:disabled {
+    opacity: 25%;
+  }
+}
+
+@mixin buttonOnDark {
+  @include button;
+  color: white;
+  border: 1px solid white;
+
+  &:hover {
+    background-color: white;
+    color: $mirage;
+  }
+}
+
+@mixin buttonOnLight {
+  @include button;
+  color: $cod-gray;
+  border: 1px solid $cod-gray;
+
+  &:hover {
+    background-color: $cod-gray;
+    color: white;
+  }
+}
+
+// FORM ELEMENTS
+
+@mixin textField {
+  width: 100%;
+  padding: 0 16px 16px;
+  color: $cod-gray;
+  opacity: 50%;
+  font-family: inherit;
+  font-size: 20px;
+  line-height: 28px;
+  border-bottom: 1px solid $cod-gray;
+
+  &::placeholder {
+    opacity: 50%;
+    font-family: inherit;
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  &:focus {
+    opacity: 1;
+    outline: none;
+  }
+}
+
+input {
+  @include textField;
+}
+
+.error {
+  border-bottom: 1px solid $error;
+  opacity: 0.5;
+  position: relative;
+
+  &::placeholder {
+    color: $error;
+  }
+
+  ::after {
+    content: "This field is required";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: $error;
+    font-family: inherit;
+    font-size: 10px;
+    letter-spacing: -0.13px;
+  }
+}
+
+.error-dropdown {
+  color: $cod-gray;
+  position: relative;
+
+  span {
+    color: $error;
+  }
+
+  .dropdown {
+    border-bottom: 1px solid $error;
+    color: $error;
+
+    .dropdown-list li {
+      color: $cod-gray;
+    }
+  }
+
+  &::after {
+    content: "This field is incomplete";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: $error;
+    font-family: inherit;
+    font-size: 10px;
+    letter-spacing: -0.13px;
+  }
+}
+
+@media (max-width: 600px) {
+  .error-dropdown {
+    &::after {
+      bottom: -10px;
+    }
+  }
+}
