@@ -6,6 +6,7 @@ const DropDown = ({ onSelect, options, header }) => {
   const dropdownRef = useRef(null);
 
   const toggleDropdown = () => {
+    console.log("Dropdown toggled:", !isOpen);
     setIsOpen(!isOpen);
   };
 
@@ -32,15 +33,16 @@ const DropDown = ({ onSelect, options, header }) => {
     <div
       className={`dropdown ${isOpen || selectedOption ? "active" : ""}`}
       ref={dropdownRef}
+      onClick={toggleDropdown}
     >
-      <div className="dropdown-header" onClick={toggleDropdown}>
+      <div className="dropdown-header">
         {selectedOption ? selectedOption : header}
       </div>
 
       {isOpen && (
         <ul className="dropdown-list">
-          {options.map((option) => (
-            <li key={option} onClick={() => handleOptionClick(option)}>
+          {options.map((option, index) => (
+            <li key={index} onClick={() => handleOptionClick(option)}>
               {selectedOption === option && (
                 <img
                   src="/images/icons/icon-check.svg"

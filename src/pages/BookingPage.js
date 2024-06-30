@@ -81,11 +81,7 @@ function BookingPage() {
     const options = [];
     for (let i = start; i <= end; i++) {
       const value = pad && i < 10 ? "0" + i : i.toString();
-      options.push(
-        <option key={value} value={value}>
-          {value}
-        </option>,
-      );
+      options.push(value);
     }
     return options;
   };
